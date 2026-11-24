@@ -1,0 +1,13 @@
+// 🌈 VARIÁVEIS CUSTOMIZADAS
+$primary: #006fee;
+$font-family-base: 'Inter', sans-serif;
+$navbar-dark: #000000;
+$body-bg: #000000;
+$body-color: #f1f1f1;
+$border-radius: 1rem;
+
+// 🚨 IMPORTS DO BOOTSTRAP
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/bootstrap";

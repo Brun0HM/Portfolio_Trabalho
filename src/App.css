@@ -1,0 +1,1076 @@
+/* ========== GLOBAL STYLES ========== */
+
+/* Navbar blur effect */
+.navbar-blur {
+  background: rgba(
+    13,
+    17,
+    23,
+    0.8
+  ) !important; /* Darker background for better blur visibility */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced blur effect on scroll */
+.navbar-blur.scrolled {
+  background: rgba(13, 17, 23, 0.95) !important;
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+  .navbar-blur {
+    background: rgba(13, 17, 23, 0.95) !important;
+  }
+
+  .navbar-blur.scrolled {
+    background: rgba(13, 17, 23, 1) !important;
+  }
+}
+
+/* Improve blur effect performance */
+.navbar-blur {
+  will-change: backdrop-filter, background;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+/* Ensure content flows behind navbar */
+body {
+  padding-top: 0; /* Remove padding for better mobile experience */
+}
+
+/* Mobile adjustments for home section */
+@media (max-width: 767.98px) {
+  #home {
+    padding-top: 100px !important; /* Add space for navbar on mobile only */
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  .tamano {
+    width: 350px !important;
+    height: 350px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  #home {
+    padding-top: 76px; /* Standard navbar height for desktop */
+  }
+}
+
+/* Fix for navbar brand and text visibility */
+.navbar-blur .navbar-brand,
+.navbar-blur .nav-link {
+  position: relative;
+  z-index: 2;
+}
+
+.NomeGrande {
+  font-size: 80px;
+  line-height: 0.9;
+  margin-bottom: 0;
+}
+
+/* Typewriter Effect */
+.typewriter-container {
+  min-height: 2.5rem; /* Evita saltos no layout */
+  display: flex;
+  align-items: center;
+}
+
+.typewriter-text {
+  color: inherit;
+}
+
+.typewriter-cursor {
+  color: #006fee;
+  font-weight: 300;
+  animation: blink 1.2s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.tamano {
+  width: 300px;
+  height: 300px;
+}
+
+/* Icon Animations */
+.icon-link {
+  text-decoration: none;
+  color: #f1f1f1;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-animated {
+  color: #f1f1f1;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(1);
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.icon-link:hover {
+  color: #006fee !important;
+  text-decoration: none;
+}
+
+.icon-link:hover .icon-animated {
+  color: #006fee !important;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px rgba(0, 111, 238, 0.5));
+}
+
+/* Efeito especial para o ícone de localização */
+.icon-link:hover .bi-geo-alt-fill {
+  animation: bounce-location 0.6s ease-in-out;
+}
+
+/* Efeito especial para o ícone do LinkedIn */
+.icon-link:hover .bi-linkedin {
+  animation: pulse-rotate 0.8s ease-in-out;
+}
+
+/* Efeito especial para o ícone de email */
+.icon-link:hover .bi-envelope-fill {
+  animation: shake-email 0.5s ease-in-out;
+}
+
+/* Animações específicas */
+@keyframes bounce-location {
+  0%,
+  100% {
+    transform: scale(1.2) translateY(0);
+  }
+  50% {
+    transform: scale(1.2) translateY(-3px);
+  }
+}
+
+@keyframes pulse-rotate {
+  0% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.3) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.3) rotate(-5deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(0deg);
+  }
+}
+
+@keyframes shake-email {
+  0%,
+  100% {
+    transform: scale(1.2) translateX(0);
+  }
+  25% {
+    transform: scale(1.2) translateX(-2px);
+  }
+  75% {
+    transform: scale(1.2) translateX(2px);
+  }
+}
+
+/* Text Justification for About Section */
+.text-justify {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* Skills Card Styling */
+.skills-card {
+  max-width: 500px;
+  width: 100%;
+  border-color: #6c757d !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skills-card:hover {
+  border-color: white !important;
+}
+
+.corzinha {
+  color: #878d97;
+}
+
+/* Skills cards layout - FrontEnd/BackEnd empilhados e Outros ao lado */
+.skills-outros-container {
+  height: 100%;
+}
+
+.skills-outros-container .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-outros-container .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.skills-outros-container .list-group {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-outros-container .list-group-item {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Para garantir que os cards FrontEnd e BackEnd tenham tamanhos adequados */
+.skills-container .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-container .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.skills-container .list-group {
+  flex-grow: 1;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 991.98px) {
+  /* No mobile, remove a altura forçada do card Outros */
+  .skills-outros-container {
+    height: auto !important;
+  }
+
+  .skills-outros-container .card {
+    height: auto !important;
+  }
+
+  /* Adiciona espaçamento entre os cards no mobile */
+  .skills-outros-container {
+    margin-top: 1rem;
+  }
+
+  /* Garante que todos os cards tenham comportamento normal no mobile */
+  .skills-container .card {
+    height: auto !important;
+  }
+
+  .navbar-brand {
+    margin-left: 1rem !important;
+  }
+
+  .navbar .d-flex {
+    margin-right: 1rem !important;
+  }
+}
+
+/* Para tablets e desktop mantém o comportamento atual */
+@media (min-width: 992px) {
+  .skills-outros-container {
+    height: 100%;
+  }
+
+  .skills-outros-container .card {
+    height: 100%;
+  }
+}
+
+/* Custom viewport height classes for better layout */
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+/* Fix for section spacing and prevent overlap */
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure proper spacing between sections */
+section,
+.section {
+  margin-bottom: 2rem;
+}
+
+/* Mobile spacing adjustments */
+@media (max-width: 767.98px) {
+  /* Adiciona mais espaçamento no About apenas no mobile */
+  .about-section {
+    margin-top: 8rem !important;
+    padding-top: 2rem !important;
+  }
+}
+
+/* Project Card Styling - Otimizado com Bootstrap */
+.project-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-card .card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.project-card:hover .card {
+  border-color: white !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Image Styling */
+.project-image {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  object-fit: cover;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+/* Project Button Animations */
+.project-btn-live:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 111, 238, 0.4);
+}
+
+.project-btn-repo {
+  transition: all 0.3s ease;
+}
+
+.project-btn-repo:hover {
+  background-color: white;
+  color: #212529 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Card content animation */
+.project-card .card-body {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .card-body {
+  transform: translateY(-5px);
+}
+
+/* Project Button Animations */
+.project-btn-live {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #006fee, #0056d3);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.project-btn-live:hover {
+  background: linear-gradient(45deg, #0056d3, #004bb5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 111, 238, 0.4);
+}
+
+.project-btn-repo {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-btn-repo:hover {
+  background-color: white;
+  color: #212529 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Card content animation */
+.project-card .card-body {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .card-body {
+  transform: translateY(-5px);
+}
+
+/* Navbar Active States */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #006fee !important;
+}
+
+.nav-link.active {
+  color: #006fee !important;
+}
+
+/* Scroll Animations */
+.scroll-animation {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animation.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve section spacing for better navigation detection */
+section,
+[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Staggered animations for children */
+.scroll-animation .row > *,
+.scroll-animation .d-flex > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animation.animate-in .row > *:nth-child(1),
+.scroll-animation.animate-in .d-flex > *:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.scroll-animation.animate-in .row > *:nth-child(2),
+.scroll-animation.animate-in .d-flex > *:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.scroll-animation.animate-in .row > *:nth-child(3),
+.scroll-animation.animate-in .d-flex > *:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.scroll-animation.animate-in .row > *,
+.scroll-animation.animate-in .d-flex > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards animation */
+.project-card,
+.skills-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-in .project-card,
+.animate-in .skills-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-in .project-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.animate-in .project-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.animate-in .project-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.animate-in .project-card:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+/* ========== ADVANCED ANIMATIONS ========== */
+
+/* Particles Background */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Enhanced Profile Photo Effects */
+.tamano {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.tamano::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(
+    45deg,
+    #006fee,
+    #00d4ff,
+    #006fee,
+    #7c3aed,
+    #006fee
+  );
+  background-size: 400% 400%;
+  border-radius: 50%;
+  z-index: -1;
+  animation: rainbow-border 3s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tamano:hover::before {
+  opacity: 1;
+}
+
+.tamano:hover {
+  transform: perspective(1000px) rotateY(15deg) rotateX(5deg) scale(1.05);
+  filter: brightness(1.1) contrast(1.1);
+  box-shadow: 0 20px 40px rgba(0, 111, 238, 0.3),
+    0 0 30px rgba(0, 111, 238, 0.2);
+}
+
+@keyframes rainbow-border {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Floating sparkles around photo */
+.sparkle-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #006fee;
+  border-radius: 50%;
+  animation: sparkle-float 3s infinite linear;
+  opacity: 0;
+}
+
+.sparkle:nth-child(1) {
+  animation-delay: 0s;
+  top: 10%;
+  left: 20%;
+}
+.sparkle:nth-child(2) {
+  animation-delay: 0.5s;
+  top: 80%;
+  left: 15%;
+}
+.sparkle:nth-child(3) {
+  animation-delay: 1s;
+  top: 20%;
+  left: 80%;
+}
+.sparkle:nth-child(4) {
+  animation-delay: 1.5s;
+  top: 70%;
+  left: 85%;
+}
+.sparkle:nth-child(5) {
+  animation-delay: 2s;
+  top: 50%;
+  left: 10%;
+}
+.sparkle:nth-child(6) {
+  animation-delay: 2.5s;
+  top: 40%;
+  left: 90%;
+}
+
+@keyframes sparkle-float {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(0px) scale(0);
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.2);
+  }
+}
+
+/* Enhanced Text - removed glow effect */
+.NomeGrande {
+  font-size: 80px;
+  line-height: 0.9;
+  margin-bottom: 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Button Animations */
+.btn-outline-primary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 2px solid #006fee;
+  background: transparent;
+}
+
+.btn-outline-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s;
+}
+
+.btn-outline-primary:hover::before {
+  left: 100%;
+}
+
+.btn-outline-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 111, 238, 0.2), 0 0 10px rgba(0, 111, 238, 0.1);
+  border-color: #00d4ff;
+  color: #00d4ff !important;
+}
+
+/* Magnetic cursor effect */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Pulse effect for active elements */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 111, 238, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 111, 238, 0.8);
+  }
+}
+
+/* Parallax Effects */
+.parallax-container {
+  overflow: hidden;
+}
+
+.parallax-element {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Text reveal animation */
+.text-reveal {
+  overflow: hidden;
+  position: relative;
+}
+
+.text-reveal-content {
+  animation: slideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.text-reveal.animate .text-reveal-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced mobile responsiveness for animations */
+@media (max-width: 767.98px) {
+  .tamano {
+    width: 250px !important;
+    height: 250px !important;
+  }
+
+  .sparkle-container {
+    display: none; /* Hide sparkles on mobile for performance */
+  }
+
+  .NomeGrande {
+    font-size: 60px !important;
+  }
+}
+
+/* Loading animation for smooth transitions */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ========== MULTI-PAGE LAYOUT ========== */
+
+/* Garante que o rodapé fique no fim mesmo em páginas curtas */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-shell {
+  flex: 1 0 auto;
+}
+
+#root > footer {
+  flex-shrink: 0;
+}
+
+/* Área padrão das páginas internas */
+.page-main {
+  padding-top: 120px;
+  padding-bottom: 72px;
+}
+
+.about-copy {
+  max-width: 78ch;
+}
+
+.page-heading {
+  padding-top: 0.25rem;
+}
+
+.page-kicker {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #006fee;
+  margin-bottom: 0.5rem;
+}
+
+.page-lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #878d97;
+  max-width: 65ch;
+  margin-bottom: 1.75rem;
+}
+
+.page-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #878d97;
+}
+
+/* Cards de navegação exibidos na página inicial */
+.home-explore {
+  padding-top: 4rem;
+  padding-bottom: 5rem !important;
+}
+
+.explore-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.explore-card:hover {
+  transform: translateY(-6px);
+  border-color: white !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.explore-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #006fee;
+  font-weight: 600;
+}
+
+.explore-link i {
+  transition: transform 0.3s ease;
+}
+
+.explore-card:hover .explore-link i,
+.pillar-card:hover .explore-link i {
+  transform: translateX(4px);
+}
+
+/* Cartões de perfil e pilares da página Sobre */
+.about-profile,
+.pillar-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-profile:hover,
+.pillar-card:hover {
+  border-color: white !important;
+}
+
+.profile-avatar {
+  width: 104px;
+  height: 104px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Blocos de dados (empresa, cargo, instituição, curso) */
+.data-list dt {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 0.1rem;
+}
+
+.data-list dd {
+  font-size: 0.98rem;
+  color: #f1f1f1;
+}
+
+.pending-badge {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #adb5bd;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+}
+
+.timeline-item {
+  border-left: 3px solid #006fee !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.empty-state {
+  background: rgba(0, 111, 238, 0.04) !important;
+  border-style: dashed !important;
+}
+
+.courses-field-list .list-group-item {
+  font-size: 0.98rem;
+}
+
+/* Navegação "Anterior / Próxima" fixada na parte inferior, acima do rodapé */
+.page-pager-wrap {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.page-pager {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-pager-side--next {
+  margin-left: auto;
+}
+
+.page-pager-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.page-pager-link small {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #878d97;
+}
+
+.page-pager-side--next .page-pager-link {
+  text-align: right;
+}
+
+.page-pager-link:hover {
+  color: #006fee;
+}
+
+.page-pager-link:hover small {
+  color: #006fee;
+}
+
+/* Menu mobile */
+.navbar-collapse {
+  padding: 0 1rem 1rem;
+}
+
+.nav-social {
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse {
+    padding: 0;
+  }
+
+  .nav-social {
+    padding-top: 0;
+  }
+
+  /* Nove itens no menu: reduz o espaçamento para caber em uma linha */
+  .navbar-nav .nav-link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.94rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navbar-nav .nav-link {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .page-main {
+    padding-top: 100px;
+    padding-bottom: 56px;
+  }
+
+  .home-explore {
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .page-pager {
+    margin-top: 0;
+  }
+
+  .page-pager-wrap {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .page-pager-link {
+    font-size: 0.95rem;
+  }
+}
+
+/* Acessibilidade: respeita a preferência por menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-animation,
+  .scroll-animation * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
